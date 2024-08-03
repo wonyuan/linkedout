@@ -15,7 +15,6 @@ const Table = () => {
             title={headers.dashboard.title}
             desc={headers.dashboard.desc}
             handleAction={() => navigate("/profile")}
-            
             />
             <TableRows />
         </Flex>

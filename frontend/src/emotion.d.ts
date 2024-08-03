@@ -11,4 +11,8 @@ declare module '@mantine/core' {
     sx?: EmotionSx;
     styles?: EmotionStyles;
   }
+  export interface IconBrandLinkedinProps {
+    sx?: EmotionSx;
+    styles?: EmotionStyles;
+  }
 }

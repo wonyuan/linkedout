@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flex, Box } from '@mantine/core';
+import { Flex, Box, Badge } from '@mantine/core';
 import Loader from '@atoms/Loader';
 import RowItem from "@atoms/RowItem";
 import SlideDrawer from '@organisms/SlideDrawer';
@@ -48,11 +48,15 @@ const TableRows = () => {
           }}
           data={index !== null ? mockData[index] : null}
         />
+        <Badge size="lg">
+            Matches
+        </Badge>
         <Box
         sx={{
           border: '2px solid #E0E0E0',
           borderRadius: '10px',
           padding: '10px 20px 10px 20px',
+          marginTop: '5px',
         }}
       >
         {mockData.map((data, idx) => (

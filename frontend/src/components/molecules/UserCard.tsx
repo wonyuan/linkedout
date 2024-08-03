@@ -1,15 +1,16 @@
-import { Box, Flex, Text, Badge } from "@mantine/core";
+import { Box, Flex, Text, Badge, Button } from "@mantine/core";
 import { Avatar } from '@mantine/core';
-
+import { useNavigate } from "react-router-dom";
 
 interface UserCardProps {
     user: any,
 };
 
 const UserCard = ({user}: UserCardProps) => {
+    const navigate = useNavigate();
     return (
     <Box>
-                <Box
+      <Box
         sx={{
           border: '2px solid #E0E0E0',
           borderRadius: '10px',
@@ -72,6 +73,18 @@ const UserCard = ({user}: UserCardProps) => {
                         })}          
                     </Text>
                 </Flex>
+                </Flex>
+                <Flex sx={{ justifyContent: 'flex-end', flex: 1 }}>
+                <Button 
+                  variant="light" 
+                  sx={{ marginRight:"10px" }}
+                  onClick={() => navigate('/')}
+                >
+                    Swap User
+                </Button>
+                <Button >
+                    Edit Me
+                </Button>
                 </Flex>
             </Flex>
         </Box>
