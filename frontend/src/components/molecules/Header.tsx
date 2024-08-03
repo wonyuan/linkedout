@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header = ({ title, desc, handleAction }: HeaderProps) => {
   return (
-    <Flex justify="space-between" gap="80px" align="center">
+    <Flex justify="space-between" gap="80px" align="center" sx={{ marginBottom: "10px"}}>
       <Flex direction="column">
         <Text c="#414141" fz="xl" fw={700}>
           {title}
