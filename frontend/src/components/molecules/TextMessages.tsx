@@ -6,11 +6,8 @@ import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
 import { Button, Flex } from '@mantine/core';
 import { IconCopy } from '@tabler/icons-react';
-import { IconTableHeart } from '@tabler/icons-react';
-
-interface TextEditorProps {
-  message: string;
-}
+import { IconSquareRoundedXFilled } from '@tabler/icons-react';
+import { useMessages } from '@context/messageContext';
 
 const textEditorStyles = css`
   .ProseMirror:focus {
@@ -18,8 +15,16 @@ const textEditorStyles = css`
   }
 `;
 
-function TextEditor({ message }: TextEditorProps) {
-  const content = `<p>${message}</p>`;
+interface TextMessagesProps {
+    message: string;
+    messageKey: number;
+  }
+  
+  function TextMessages(props: TextMessagesProps) {
+    const { deleteMessage } = useMessages(); 
+    const { message, messageKey } = props;
+    const content = `<p>${message}</p>`;
+  
 
   const editor = useEditor({
     extensions: [
@@ -36,7 +41,13 @@ function TextEditor({ message }: TextEditorProps) {
     }
   };
 
+  const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    console.log(messageKey);
+    deleteMessage(messageKey); 
+  };
 
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Flex direction="row">
@@ -44,22 +55,27 @@ function TextEditor({ message }: TextEditorProps) {
                     editor={editor}
                     css={textEditorStyles}
                     style={{
+                        paddingLeft: '30px',
                         minHeight: '10%',
-                        minWidth: '80%', 
+                        minWidth: '94%', 
                     }}
                 >
                     <RichTextEditor.Toolbar sticky stickyOffset={60}>
                     </RichTextEditor.Toolbar>
                     <RichTextEditor.Content />
                 </RichTextEditor>
-                <Flex direction="column">
-                    <Button onClick={handleCopy} style={{ marginLeft: '8px' }}>
+                <Flex direction="column" justify="center" align="center" >
+                    <Button onClick={handleCopy} style={{ marginLeft: '8px', marginBottom: '8px'}}>
                         <IconCopy stroke={2} />
+                    </Button>
+                    <Button variant="light" onClick={handleDelete} style={{ marginLeft: '8px' }}>
+                        <IconSquareRoundedXFilled />
                     </Button>
                 </Flex>
             </Flex>
         </div>
+
   );
 }
 
-export default TextEditor;
+export default TextMessages;
