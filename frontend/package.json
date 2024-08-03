@@ -2,7 +2,9 @@
   "name": "mantine-vite-template",
   "private": true,
   "version": "0.0.0",
-  "overrides": { "eslint": "^9.8.0" },
+  "overrides": {
+    "eslint": "^9.8.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -26,8 +28,15 @@
     "@emotion/utils": "^1.4.0",
     "@mantine/core": "^7.11.2",
     "@mantine/emotion": "^7.11.2",
-    "@mantine/hooks": "7.11.2",
+    "@mantine/hooks": "^7.11.2",
+    "@mantine/tiptap": "^7.11.2",
+    "@tabler/icons": "^1.119.0",
     "@tabler/icons-react": "^3.11.0",
+    "@tiptap/extension-link": "^2.5.8",
+    "@tiptap/extension-text-align": "^2.5.8",
+    "@tiptap/pm": "^2.5.8",
+    "@tiptap/react": "^2.5.8",
+    "@tiptap/starter-kit": "^2.5.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"

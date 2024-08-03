@@ -15,6 +15,7 @@ const user = {
 };
 
 // saved messages that you've sent already to people
+// empty card for when messages aren't saved, can be copied easily
 const Profile = () => {
     const navigate = useNavigate();
 

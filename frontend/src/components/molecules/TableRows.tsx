@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Flex, Box, Badge } from '@mantine/core';
 import Loader from '@atoms/Loader';
 import RowItem from "@atoms/RowItem";
-import SlideDrawer from '@organisms/SlideDrawer';
+import ModalDetail from '@organisms/ModalDetail';
 
 const mockUser = {
     name: "Gregory Lane",
@@ -40,7 +40,7 @@ const TableRows = () => {
   return (
     <Box >
       <Loader />
-      <SlideDrawer
+      <ModalDetail
           open={!!open}
           setClose={() => {
             setOpen(null);
