@@ -46,7 +46,7 @@ pip install selenium==4.1.3 beautifulsoup4==4.10.0 pymongo==4.0.1 webdriver-mana
 
 MongoDB cluster configured as such:
 
-![App Screenshot](https:/github.com/shivyam/linkedOutReach/edit/main/readmeImgs/Mongo Configuration.JPG "Logo Title Text 1")
+![Alt Text](https://github.com/shivyam/linkedOutReach/blob/main/readMeImgs/Mongo%20Configuration.JPG)
 
 Ensure MongoDB instance is running. For the purposes of this project, only using one account so password shouldn't need to change. Potentially will need to add more IPs so other devices can access it tho. 
 
@@ -58,11 +58,9 @@ Update linkedIn username and password as needed
 
 As shown below
 
-![App Screenshot](https:/github.com/shivyam/linkedOutReach/edit/main/readmeImgs/Terminal ScreenShot.JPG "Logo Title Text 1")
+![Alt Text](https://github.com/shivyam/linkedOutReach/blob/main/readMeImgs/Terminal%20ScreenShot.JPG)
 
 Refresh to check scraped data has been added to database:
 
-![App Screenshot](https:/github.com/shivyam/linkedOutReach/edit/main/readmeImgs/MongoDB Update.JPG "Logo Title Text 1")
-
-
+![Alt Text](https://github.com/shivyam/linkedOutReach/blob/main/readMeImgs/MongoDB%20Update.JPG)
 
