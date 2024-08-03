@@ -57,22 +57,24 @@ const UserCard = ({user}: UserCardProps) => {
                     {user?.desc}
                 </Text>
                 <Flex direction="row" gap="8px" wrap="wrap">
-                    <Text size="sm" c="gray" >
+                    <Text size="sm" c="gray">
                         my interests:{' '}
+                    </Text>
+                    <Flex direction="row" gap="8px" wrap="wrap">
                         {user.likes.map((item: any, i: number) => {
                             return Array.isArray(item) ? (
-                            item.map((t: any) => (
-                                <Badge key={i} color="cyan" sx={{ gap:"10px", marginRight:"100px"}}>
-                                    {t}
-                                </Badge>
-                            ))
+                                item.map((t: any, j: number) => (
+                                    <Badge key={`${i}-${j}`} color="cyan" sx={{ gap: "10px", marginRight: "100px" }}>
+                                        {t}
+                                    </Badge>
+                                ))
                             ) : (
-                            <Badge color="cyan" sx={{marginLeft:"5px", marginBottom:"5px"}}>
-                                {item}
-                            </Badge>
+                                <Badge key={i} color="cyan" sx={{ marginLeft: "3px", marginBottom: "2px" }}>
+                                    {item}
+                                </Badge>
                             );
-                        })}          
-                    </Text>
+                        })}
+                    </Flex>
                 </Flex>
                 </Flex>
                 <Flex sx={{ justifyContent: 'flex-end', flex: 1 }}>

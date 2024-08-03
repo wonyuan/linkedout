@@ -6,6 +6,7 @@ const MessagesContext = createContext<MessagesContextType | undefined>(undefined
 interface MessagesContextType {
     messages: { content: string }[];
     addMessage: (content: string) => void;
+    deleteMessage: (index: number) => void;
 }
 
 export const MessagesProvider = ({ children }: { children: ReactNode }) => {
@@ -19,8 +20,16 @@ export const MessagesProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
+    const deleteMessage = (index: number) => {
+        setMessages((prevMessages) => {
+            const updatedMessages = prevMessages.filter((_, i) => i !== index);
+            console.log("Updated Saved Messages after deletion:", updatedMessages);
+            return updatedMessages;
+        });
+    };
+
     return (
-        <MessagesContext.Provider value={{ messages, addMessage }}>
+        <MessagesContext.Provider value={{ messages, addMessage, deleteMessage }}>
             {children}
         </MessagesContext.Provider>
     );
