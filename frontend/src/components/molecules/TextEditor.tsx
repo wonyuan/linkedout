@@ -1,15 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { RichTextEditor, Link } from '@mantine/tiptap';
-import { Box, Flex } from '@mantine/core';
 import { useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
-import { Button } from '@mantine/core';
+import { Button, Flex } from '@mantine/core';
 import { IconCopy } from '@tabler/icons-react';
+import { IconTableHeart } from '@tabler/icons-react';
 
 interface TextEditorProps {
   message: string;
+  onSave: (content: string) => void; // Accept a callback prop
 }
 
 const textEditorStyles = css`
@@ -18,7 +19,7 @@ const textEditorStyles = css`
   }
 `;
 
-function TextEditor({ message }: TextEditorProps) {
+function TextEditor({ message, onSave }: TextEditorProps) {
   const content = `<p>${message}</p>`;
 
   const editor = useEditor({
@@ -36,20 +37,39 @@ function TextEditor({ message }: TextEditorProps) {
     }
   };
 
-  return (
-    <div>
-        <Flex direction="row">  
-            <RichTextEditor editor={editor} css={textEditorStyles}>
-                <RichTextEditor.Toolbar sticky stickyOffset={60}>
-                </RichTextEditor.Toolbar>
+  const handleSave = () => {
+    if (editor) {
+      const currentContent = editor.getHTML();
+      onSave(currentContent); 
+    }
+  };
 
-                <RichTextEditor.Content />
-            </RichTextEditor>
-            <Button onClick={handleCopy} sx={{ marginLeft:"20px"}}>
-                <IconCopy stroke={2} size="60px"/>      
-            </Button>
-        </Flex>   
-    </div>
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Flex direction="row">
+                <RichTextEditor
+                    editor={editor}
+                    css={textEditorStyles}
+                    style={{
+                        minHeight: '10%', // Set a minimum height
+                        minWidth: '450px', // Set a minimum width to prevent shrinking
+                    }}
+                >
+                    <RichTextEditor.Toolbar sticky stickyOffset={60}>
+                        {/* Toolbar content here */}
+                    </RichTextEditor.Toolbar>
+                    <RichTextEditor.Content />
+                </RichTextEditor>
+                <Flex direction="column">
+                    <Button onClick={handleCopy} style={{ marginLeft: '8px' }}>
+                        <IconCopy stroke={2} />
+                    </Button>
+                    <Button onClick={handleSave} variant="light" style={{ marginLeft: '8px', marginTop: '8px' }}>
+                        <IconTableHeart stroke={2} />
+                    </Button>
+                </Flex>
+            </Flex>
+        </div>
   );
 }
 
