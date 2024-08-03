@@ -15,11 +15,11 @@ export function AccountInput() {
             linkedOutReach
           </Text>
         </Flex>
-        <Text size="lg" fw={500} c="#414141">
-        Your Professional Match is Just a Ghost Away!
+        <Text size="lg" fw={500} c="#414141" sx={{ marginTop:'-15px'}}>
+        Your professional match is just a ghost away!
         </Text>
       </Flex>
-      <Flex direction="row" gap="xs">
+      <Flex direction="row" gap="xs" >
       <TextInput 
         c="#414141" 
         fz="xl" 
@@ -29,9 +29,9 @@ export function AccountInput() {
         label="Please enter your linkedin"
         placeholder="@linkedin.com"
         sx={{ width: '500px' }}
-        labelProps={{ style: { fontWeight: 800, fontSize: rem(18), color: "#414141" } }}
+        labelProps={{ style: { fontWeight: 500, fontSize: rem(18), color: "#414141" } }}
       />
-      <Button variant="filled">Search</Button>
+      <Button variant="filled" sx={{ marginTop:"30px"}}>Search</Button>
       </Flex>
     </Flex>
   );
