@@ -31,11 +31,11 @@ soup = BeautifulSoup(page_source, 'html.parser')
 
 # Extract the name and headline
 name = soup.find('h1', {'class': 'text-heading-xlarge inline t-24 v-align-middle break-words'}).text.strip()
-#headline = soup.find('h2', {'class': 'mt1 t-18 t-black t-normal break-words'}).text.strip()
+headline = soup.find('div', {'class': 'OElnVfzAcygnRqxEDKPEAGXxBkRSBHMbezdNQ inline-show-more-text--is-collapsed inline-show-more-text--is-collapsed-with-line-clamp full-width'}).text.strip()
 
 # Print the extracted data
 print('Name:', name)
-#print('Headline:', headline)
+print('Headline:', headline)
 
 # Close the browser
 driver.quit()
