@@ -1,18 +1,24 @@
 .navbar {
-    width: rem(80px);
-    height: 100vh;
+    position: fixed; /* Fixes the navbar to the viewport */
+    top: 0; /* Aligns the navbar to the top */
+    left: 0; /* Aligns the navbar to the left */
+    width: rem(80px); /* Set a fixed width */
+    height: 100vh; /* Full height of the viewport */
     padding: var(--mantine-spacing-md);
-    display: dix;
+    display: flex;
     flex-direction: column;
     border-right: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-  }
-  
-  .navbarMain {
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-5)); /* Optional background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+}
+
+.navbarMain {
     flex: 1;
     margin-top: rem(50px);
-  }
-  
-  .link {
+}
+
+.link {
     width: rem(50px);
     height: rem(50px);
     border-radius: var(--mantine-radius-md);
@@ -20,16 +26,25 @@
     align-items: center;
     justify-content: center;
     color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+
     &:hover {
-      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
+        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
     }
-  
+
     &[data-active] {
-      &,
-      &:hover {
-        background-color: var(--mantine-color-cyan-light);
-        color: var(--mantine-color-cyan-light-color);
-      }
+        &,
+        &:hover {
+            background-color: var(--mantine-color-cyan-light);
+            color: var(--mantine-color-cyan-light-color);
+        }
+        border-left: rem(3px) solid var(--mantine-color-cyan-light); /* Optional: Add an accent border */
     }
-  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        width: rem(60px); /* Adjust navbar width for smaller screens */
+    }
+}

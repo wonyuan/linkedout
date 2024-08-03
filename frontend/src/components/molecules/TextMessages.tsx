@@ -10,7 +10,6 @@ import { IconTableHeart } from '@tabler/icons-react';
 
 interface TextEditorProps {
   message: string;
-  onSave: (content: string) => void;
 }
 
 const textEditorStyles = css`
@@ -19,7 +18,7 @@ const textEditorStyles = css`
   }
 `;
 
-function TextEditor({ message, onSave }: TextEditorProps) {
+function TextEditor({ message }: TextEditorProps) {
   const content = `<p>${message}</p>`;
 
   const editor = useEditor({
@@ -37,12 +36,6 @@ function TextEditor({ message, onSave }: TextEditorProps) {
     }
   };
 
-  const handleSave = () => {
-    if (editor) {
-      const currentContent = editor.getHTML();
-      onSave(currentContent); 
-    }
-  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -52,20 +45,16 @@ function TextEditor({ message, onSave }: TextEditorProps) {
                     css={textEditorStyles}
                     style={{
                         minHeight: '10%',
-                        minWidth: '450px', 
+                        minWidth: '80%', 
                     }}
                 >
                     <RichTextEditor.Toolbar sticky stickyOffset={60}>
-                        {/* Toolbar content here */}
                     </RichTextEditor.Toolbar>
                     <RichTextEditor.Content />
                 </RichTextEditor>
                 <Flex direction="column">
                     <Button onClick={handleCopy} style={{ marginLeft: '8px' }}>
                         <IconCopy stroke={2} />
-                    </Button>
-                    <Button onClick={handleSave} variant="light" style={{ marginLeft: '8px', marginTop: '8px' }}>
-                        <IconTableHeart stroke={2} />
                     </Button>
                 </Flex>
             </Flex>

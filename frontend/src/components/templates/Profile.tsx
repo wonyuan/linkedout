@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "@molecules/Header";
 import { headers } from "@constants/text";
 import UserCard from "@molecules/UserCard";
+import TextCard from "@molecules/TextCard";
 
 const user = {
     name: "John Doe",
@@ -27,6 +28,8 @@ const Profile = () => {
             handleAction={() => navigate("/profile")}
             />
             <UserCard user={user} />
+            <TextCard />
+            
         </Flex>
     );
 };

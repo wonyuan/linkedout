@@ -2,6 +2,7 @@ import { Modal, Grid, Text, Flex, Box } from "@mantine/core";
 import TextEditor from "@molecules/TextEditor";
 import { useState } from "react";
 import { useMessages } from "@context/messageContext"; 
+import ModalTabs from "@organisms/ModalTabs";
 
 interface ModalDetailProps {
     open: boolean;
@@ -47,9 +48,10 @@ const ModalDetail = ({ open, setClose, data }: ModalDetailProps) => {
                   }}>              
                   <TextEditor message={message} onSave={handleSaveMessage}/>
                 </Box>
-                <Text c="#868E96" size="xs" sx={{marginTop:'5px'}}>
+                <Text c="#868E96" size="xs" sx={{marginTop:'5px', marginBottom:'30px'}}>
                   Save this template message to your dashboard if it's to your liking! We'd be honoured.
                 </Text>
+                <ModalTabs /> 
               </Flex>
         </Modal>
     )

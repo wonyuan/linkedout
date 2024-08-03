@@ -10,7 +10,7 @@ import { IconTableHeart } from '@tabler/icons-react';
 
 interface TextEditorProps {
   message: string;
-  onSave: (content: string) => void;
+  onSave: (content: string) => void; // Accept a callback prop
 }
 
 const textEditorStyles = css`
@@ -51,12 +51,11 @@ function TextEditor({ message, onSave }: TextEditorProps) {
                     editor={editor}
                     css={textEditorStyles}
                     style={{
-                        minHeight: '10%',
+                        minHeight: '10%', 
                         minWidth: '450px', 
                     }}
                 >
                     <RichTextEditor.Toolbar sticky stickyOffset={60}>
-                        {/* Toolbar content here */}
                     </RichTextEditor.Toolbar>
                     <RichTextEditor.Content />
                 </RichTextEditor>

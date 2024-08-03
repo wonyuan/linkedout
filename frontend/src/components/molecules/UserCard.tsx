@@ -28,6 +28,7 @@ const UserCard = ({user}: UserCardProps) => {
           padding: "30px",
           paddingLeft: "60px",
           borderRadius: "15px",
+          flexGrow: 1,
           backgroundColor: "#F3F4F8",
           transition: 'box-shadow 0.3s, opacity 0.3s',
           '&:hover': {
