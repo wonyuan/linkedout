@@ -3,17 +3,11 @@ import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
 import {
   IconHome2,
   IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
-  IconUser,
-  IconSettings,
   IconLogout,
-  IconSwitchHorizontal,
+  IconGhost2Filled
 } from '@tabler/icons-react';
 import classes from './NavbarMinimal.module.css';
-import { IconGhost2Filled } from '@tabler/icons-react';
-
+import { useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
   icon: typeof IconHome2;
@@ -33,21 +27,25 @@ function Navbar({ icon: Icon, label, active, onClick }: NavbarProps) {
 }
 
 const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconSettings, label: 'Settings' },
+  { icon: IconHome2, label: 'Home', route: '/home' },
+  { icon: IconGauge, label: 'Dashboard', route: '/dashboard' },
 ];
 
 export function NavbarMinimal() {
   const [active, setActive] = useState(2);
+  const navigate = useNavigate();
+
+  const handleNavigate = (route: string, index: number) => {
+    setActive(index);
+    navigate(route);
+  };
 
   const links = mockdata.map((link, index) => (
     <Navbar
       {...link}
       key={link.label}
       active={index === active}
-      onClick={() => setActive(index)}
+      onClick={() => handleNavigate(link.route, index)}
     />
   ));
 
@@ -64,8 +62,7 @@ export function NavbarMinimal() {
       </div>
 
       <Stack justify="center" gap={0}>
-        <Navbar icon={IconSwitchHorizontal} label="Change account" />
-        <Navbar icon={IconLogout} label="Logout" />
+        <Navbar icon={IconLogout} label="Logout" onClick={() => navigate('/')} />
       </Stack>
     </nav>
   );
