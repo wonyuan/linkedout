@@ -1,4 +1,4 @@
-import { Badge, Modal, Grid, Text } from "@mantine/core";
+import { Modal, Grid, Text, Flex, Box } from "@mantine/core";
 import TextEditor from "@molecules/TextEditor";
 
 interface ModalDetailProps {
@@ -7,7 +7,7 @@ interface ModalDetailProps {
     data: any;
   }
 
-const message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+const message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
 
 const ModalDetail = ({ open, setClose, data }: ModalDetailProps) => {
     return (
@@ -20,13 +20,23 @@ const ModalDetail = ({ open, setClose, data }: ModalDetailProps) => {
             onClose={setClose}
             overlayProps={{ opacity: 0.4, blur: 1 }}
             >
-              <Text size="xl" c="#343A40" fw={700}>
-                {data?.name}
-              </Text>
-              <Text c="#495057">
-                {data?.desc}
-              </Text>
-              <TextEditor message={message}/> 
+              <Flex direction="column" sx={{ marginBottom: "5px" }}>
+                <Text size="xl" c="#343A40" fw={700}>
+                  {data?.name}
+                </Text>
+                <Text c="#495057">
+                  {data?.desc}
+                </Text>
+              </Flex>
+              <Box
+                sx={{
+                  border: '2px solid #E0E0E0',
+                  borderRadius: '10px',
+                  padding: '10px 20px 10px 20px',
+                  marginTop: '5px',
+                }}>              
+                <TextEditor message={message}/>
+              </Box>
         </Modal>
     )
 };
