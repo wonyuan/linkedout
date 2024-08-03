@@ -6,9 +6,9 @@ import NavbarMinimal from "@molecules/Navbar";
 export function Home() {
   return (
     <>
-      <Flex direction="row">
+      <Flex direction="row" sx={{ paddingRight: 0 }}>
         <NavbarMinimal/>
-        <Flex direction="column">
+        <Flex direction="column" sx={{ width:"100%"}}>
           <Table />
         </Flex>
       </Flex>
