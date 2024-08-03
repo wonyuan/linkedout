@@ -1,4 +1,3 @@
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { Flex, Box } from '@mantine/core';
 import Profile from "@templates/Profile";
 import { NavbarMinimal } from "@molecules/Navbar";

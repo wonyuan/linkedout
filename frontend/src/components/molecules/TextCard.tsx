@@ -1,5 +1,5 @@
 import { useMessages } from "@context/messageContext";
-import { Box, Flex, Text, Badge } from "@mantine/core";
+import { Box, Flex, Text, Badge, Divider } from "@mantine/core";
 import TextMessages from "@molecules/TextMessages";
 
 const TextCard = () => {
@@ -23,10 +23,13 @@ const TextCard = () => {
                 <Text>No messages saved yet.</Text>
             ) : (
                 messages.map((message, index) => (
-                    <TextMessages key={index} message={message.content} />
+                    <>
+                    <TextMessages key={index} message={message.content} messageKey={index} />
+                    <Divider my="md" />
+                    </>
                 ))
             )}
-        </Box>
+          </Box>
         </Box>
       </>
     );
