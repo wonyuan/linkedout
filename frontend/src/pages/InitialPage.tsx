@@ -21,22 +21,3 @@ export function InitialPage() {
         </Flex>
     );
 }
-
-
-/*import { Flex, Box, Text } from '@mantine/core';
-import { AccountInput } from "@molecules/AccountInput";
-
-
-import {
-    IconGhost2Filled
-  } from '@tabler/icons-react';
-
-export function InitialPage() {
-    return (
-        <>
-            <Flex direction="column" justify="center" sx={{ width:"100%", padding: "20px"}}>
-            <AccountInput />
-            </Flex>
-        </>
-      );
-}*/
