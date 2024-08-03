@@ -8,7 +8,7 @@ export function Home() {
     <>
       <Flex direction="row" sx={{ paddingRight: 0 }}>
         <NavbarMinimal/>
-        <Flex direction="column" sx={{ width:"100%" }}>
+        <Flex direction="column" sx={{ width:"100%"}}>
           <Table />
         </Flex>
       </Flex>

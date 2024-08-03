@@ -52,7 +52,7 @@ export function NavbarMinimal() {
   return (
     <nav className={classes.navbar}>
       <Center>
-        <IconGhost2Filled size={30} />
+        <IconGhost2Filled color="#1098AD" size={30} />
       </Center>
 
       <div className={classes.navbarMain}>
