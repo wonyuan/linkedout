@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Flex, Box } from '@mantine/core';
 import Loader from '@atoms/Loader';
 import RowItem from "@atoms/RowItem";
-import SliderDrawer from "@organisms/SlideDrawer";
 import SlideDrawer from '@organisms/SlideDrawer';
 
 const mockUser = {
@@ -39,7 +38,7 @@ const TableRows = () => {
   const [index, setIndex] = useState<number | null>(null);
 
   return (
-    <Box sx={{ padding: "5px", }}>
+    <Box >
       <Loader />
       <SlideDrawer
           open={!!open}
@@ -53,7 +52,7 @@ const TableRows = () => {
         sx={{
           border: '2px solid #E0E0E0',
           borderRadius: '10px',
-          padding: '10px',
+          padding: '10px 20px 10px 20px',
         }}
       >
         {mockData.map((data, idx) => (
@@ -78,10 +77,12 @@ const TableRows = () => {
         }}
         key={idx}
         >
-          <RowItem setOpen={() => {
+          <RowItem 
+            setOpen={() => {
               setOpen(data.name); 
               setIndex(idx); 
-            }}  data={data}/>
+            }}  
+            data={data}/>
         </Flex>
         ))}
       </Box>

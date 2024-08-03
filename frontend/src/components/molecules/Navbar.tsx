@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
 import {
   IconHome2,
@@ -7,7 +7,7 @@ import {
   IconGhost2Filled
 } from '@tabler/icons-react';
 import classes from './NavbarMinimal.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   icon: typeof IconHome2;
@@ -32,8 +32,15 @@ const mockdata = [
 ];
 
 export function NavbarMinimal() {
-  const [active, setActive] = useState(2);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const activeIndex = mockdata.findIndex(link => link.route === currentPath);
+    setActive(activeIndex !== -1 ? activeIndex : 0);
+  }, [location.pathname]);
 
   const handleNavigate = (route: string, index: number) => {
     setActive(index);
