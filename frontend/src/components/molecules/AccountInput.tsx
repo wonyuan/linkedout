@@ -5,7 +5,7 @@ import { Button } from '@mantine/core';
 
 
 export function AccountInput() {
-  const icon = <IconBrandLinkedin style={{ width: rem(16), height: rem(16) }} />;
+  const icon = <IconBrandLinkedin style={{ width: rem(26), height: rem(26)  }} />;
   return (
     <Flex direction="column" sx={{ minHeight: '100vh' }} justify="center" align="center" gap="md"> 
       <Flex direction="column" align="center" sx={{ marginBottom: '20px' }}>
@@ -16,7 +16,7 @@ export function AccountInput() {
           </Text>
         </Flex>
         <Text size="lg" fw={500} c="#414141">
-        Your Professional Match is Just a Ghost Away!
+        Your professional match is just a ghost away!
         </Text>
       </Flex>
       <Flex direction="row" gap="xs">
@@ -27,9 +27,9 @@ export function AccountInput() {
         leftSectionPointerEvents="none"
         leftSection={icon}
         label="Please enter your linkedin"
-        placeholder="@linkedin.com"
+        placeholder="username@linkedin.com"
         sx={{ width: '500px' }}
-        labelProps={{ style: { fontWeight: 800, fontSize: rem(18), color: "#414141" } }}
+        labelProps={{ style: { fontWeight: 700, fontSize: rem(18), color: "#414141" } }}
       />
       <Button variant="filled">Search</Button>
       </Flex>
