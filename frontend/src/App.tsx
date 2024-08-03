@@ -3,13 +3,14 @@ import { Home } from '@pages/Home';
 import { Dashboard } from '@pages/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MessagesProvider } from '@context/messageContext';
+import { InitialPage } from './pages/InitialPage';
 
 const App = () => {
   return (
     <MessagesProvider>
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<InitialPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
