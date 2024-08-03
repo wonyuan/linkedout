@@ -1,6 +1,8 @@
 import { TextInput, rem, Flex, Text } from '@mantine/core';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { IconGhost2Filled } from '@tabler/icons-react';
+import { Button } from '@mantine/core';
+
 
 export function AccountInput() {
   const icon = <IconBrandLinkedin style={{ width: rem(16), height: rem(16) }} />;
@@ -17,6 +19,7 @@ export function AccountInput() {
         Your Professional Match is Just a Ghost Away!
         </Text>
       </Flex>
+      <Flex direction="row" gap="xs">
       <TextInput 
         c="#414141" 
         fz="xl" 
@@ -28,6 +31,8 @@ export function AccountInput() {
         sx={{ width: '500px' }}
         labelProps={{ style: { fontWeight: 800, fontSize: rem(18), color: "#414141" } }}
       />
+      <Button variant="filled">Search</Button>
+      </Flex>
     </Flex>
   );
 }

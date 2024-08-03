@@ -4,7 +4,7 @@ import { useMantineTheme } from '@mantine/core';
 
 export function InitialPage() {
     const theme = useMantineTheme();
-    const radialGradient = 'radial-gradient(circle, #b9f1ff, #ffffff)'; 
+    const radialGradient = 'radial-gradient(circle, #5cdeff, #ffffff)'; 
 
     return (
         <Flex 
