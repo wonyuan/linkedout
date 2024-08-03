@@ -9,12 +9,15 @@ const Table = () => {
     const navigate = useNavigate();
 
     return (
-        <Flex direction="row" gap="10px" sx={{ padding: "0 40px", height: "100vh" }}>
+        <Flex direction="column" gap="10px" sx={{ padding: "50px 50px", height: "100vh" }}>
             <Header
             title={headers.dashboard.title}
             desc={headers.dashboard.desc}
             handleAction={() => navigate("/profile")}
             />
+            <Box sx={{ width: "100%" }}>
+
+            </Box>
         </Flex>
     );
 };

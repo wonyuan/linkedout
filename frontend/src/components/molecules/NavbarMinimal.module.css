@@ -28,8 +28,8 @@
     &[data-active] {
       &,
       &:hover {
-        background-color: var(--mantine-color-blue-light);
-        color: var(--mantine-color-blue-light-color);
+        background-color: var(--mantine-color-cyan-light);
+        color: var(--mantine-color-cyan-light-color);
       }
     }
   }

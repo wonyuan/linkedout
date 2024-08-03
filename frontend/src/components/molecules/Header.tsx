@@ -18,7 +18,7 @@ const Header = ({ title, desc, handleAction }: HeaderProps) => {
           {desc}
         </Text>
       </Flex>
-      <ActionIcon onClick={handleAction}>
+      <ActionIcon onClick={handleAction} >
         <IconReload />
       </ActionIcon>
     </Flex>
