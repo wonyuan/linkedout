@@ -1,12 +1,17 @@
 import '@mantine/core/styles.css';
-import { MantineProvider } from '@mantine/core';
-import { Router } from './Router';
-import { theme } from './theme';
+import { Home } from '@pages/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export default function App() {
+
+const App = () => {
   return (
-    <MantineProvider theme={theme}>
-      <Router />
-    </MantineProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
+export default App;
+
