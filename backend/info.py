@@ -8,19 +8,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
+import os
 import time
+from dotenv import load_dotenv
+
+#load environment variables from .env file
+linkedin_username= os.getenv('LINKEDIN_USERNAME')
+linkedin_password= os.getenv('LINKEDIN_PASSWORD')
 
 app=Flask(__name__)
 cors= CORS(app, origins="*")
+scraped_data = {}
 
-#https://www.linkedin.com/in/shivya-mehta/
+#test profile: https://www.linkedin.com/in/shivya-mehta/
 @app.errorhandler(400)
 def bad_request(e):
     return jsonify(e), 400
 
 @app.route("/api/linkedinURL", methods=["POST"])
 def get_linkedin():
-
+    global scraped_data
     data = request.json
     linkedin_url = data.get('linkedinURL', "")
 
@@ -34,8 +41,8 @@ def get_linkedin():
     driver.get('https://www.linkedin.com/login')
 
     #log into dummy linkedin
-    driver.find_element("id", "username").send_keys('janoochinki@gmail.com')
-    driver.find_element("id", "password").send_keys('passwordhackthe6ix')
+    driver.find_element("id", "username").send_keys(linkedin_username)
+    driver.find_element("id", "password").send_keys(linkedin_password)
     driver.find_element("css selector", '.login__form_action_container button').click()
     time.sleep(20)
 
@@ -69,14 +76,23 @@ def get_linkedin():
     experience_list= list(experience_set)
 
 
-    print('Name:', name)
-    print('About Me Section:', about)
+    scraped_data = {"name": name, "about": about, "experiences": experience_list}
 
-    #closes the browser
+    #closes the launched browser
     driver.quit()
+    
+    print("About: " + about)
 
-    return {"name": name, "about": about, "experiences": experience_list}
+    return jsonify(scraped_data)
 
+
+
+@app.route("/api/getLinkedInData", methods=["GET"])
+def get_linkedin_data():
+    if scraped_data:
+        return jsonify(scraped_data)
+    else:
+        return jsonify({"error": "No data available. Please make a POST request first."}), 404
 
 
 

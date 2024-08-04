@@ -10,19 +10,10 @@ export function AccountInput() {
   const navigate = useNavigate();
   const [linkedinURL, setLinkedinURL] = useState<string>("");
 
-  const [name, setName] = useState<string>("");
-  const [about, setAbout] = useState<string>("");
-  const [experiences, setExperiences] = useState<string[]>([]);
-
+ 
   const handleSearch = async () => {
     try {
       const response = await api.post('/api/linkedinURL', {linkedinURL});
-      console.log(response.data.name);
-      setName(response.data.name)
-      console.log(response.data.about);
-      setAbout(response.data.about);
-      console.log(response.data.experiences);
-      setExperiences(response.data.experiences);
       navigate('/home');
 
     } catch (error) {
