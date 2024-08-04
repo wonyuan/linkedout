@@ -90,6 +90,7 @@ try:
         return scores
 
     # Extract features for each document
+    
     def extract_features(doc, keywords):
         headline = doc.get('headline', '')
         skills = doc.get('skills', [])
@@ -109,6 +110,7 @@ try:
     print("Extracted features from documents.", flush=True)
 
     # Identify similar features between two profiles for them to note in their message
+    #HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     def find_similar_features(profile1, profile2):
         similar_skills = set(profile1['skills']).intersection(set(profile2['skills']))
         similar_interests = set(profile1['interests']).intersection(set(profile2['interests']))
@@ -194,6 +196,9 @@ try:
                 message = message.replace(placeholder, user_name)
         return message
 
+
+
+    #HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     def construct_linkedin_message(similar_features, recipient_name, user_name):
         skills, interests, goals = categorize_keywords(similar_features['keywords'])
 
@@ -216,7 +221,8 @@ try:
         message = response.generations[0].text.strip()
         message = replace_placeholders(message, skills, interests, goals, recipient_name, user_name)
         message = fill_in_remaining_placeholders(message, skills, interests, goals, recipient_name, user_name)
-        return message
+    
+        return {"message" : message}
 
     # Construct the message for the highest match
     recipient_name = highest_match_name  # The person with the highest match
@@ -225,6 +231,8 @@ try:
     message = construct_linkedin_message(similar_features_example, recipient_name, user_name)
     print("Generated LinkedIn Message:")
     print(message, flush=True)
+
+
 
 except Exception as e:
     print(f"An error occurred: {e}", flush=True)
