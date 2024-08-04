@@ -5,13 +5,16 @@ import RowItem from "@atoms/RowItem";
 import ModalDetail from '@organisms/ModalDetail';
 import { getProfessionals } from '@api/professionals';
 
-console.log(getProfessionals);
-
 const profiles = await getProfessionals();
 
 const mockUser = {
     name: "Gregory Lane",
 }
+
+const mockScore = {
+  score: Array.from({ length: 19 }, () => Math.random()).sort((a, b) => b - a)
+};
+
 
 const TableRows = () => {
   const [open, setOpen] = useState<string | null>(null);
@@ -63,10 +66,11 @@ const TableRows = () => {
         >
           <RowItem 
             setOpen={() => {
-              setOpen(profiles?.professionals); 
+              setOpen( profiles?.professionals); 
               setIndex(idx); 
             }}  
-            data={data}/>
+            data={data}
+            mockScore={mockScore.score[idx]}/>
         </Flex>
         ))}
       </Box>

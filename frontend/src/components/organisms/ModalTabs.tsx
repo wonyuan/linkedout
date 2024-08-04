@@ -7,7 +7,7 @@ const data = {
   ]
 }
 
-function ModalTabs() {
+const ModalTabs = (newData: any) => {
   const [activeTab, setActiveTab] = useState<string | null>('about');
 
   return (
@@ -19,13 +19,12 @@ function ModalTabs() {
 
       <Tabs.Panel value="about">
       <Box bg="cyan.0"  sx={{ padding:'10px', paddingLeft:'25px', marginTop:'20px', borderRadius:'10px'}}>
-      <Text >
-        Wonderful
-        </Text>
-         {/*
-         conjure up a summary of the user's profile here
-         section for education, experience, skills (techstack), volunteering (if applicable)
-         */}
+      <Text sx={{ fontSize: '16px', marginBottom:'5px', fontWeight:'600'}}>
+            Here's a quick blurb about {newData?.newData?.name}:
+          </Text> 
+          <Text>
+            {newData?.newData?.headline}
+          </Text>        
         </Box>
       </Tabs.Panel>
       <Tabs.Panel value="common">
@@ -34,7 +33,7 @@ function ModalTabs() {
         Here are some matching keywords we found in your profiles:
         </Text>
         <ol>
-         {data.matchingLikes.map((like, index) => (
+         {data.matchingLikes.map((like: string, index: number) => (
            <li key={index}>{like}</li>
          ))}
        </ol>

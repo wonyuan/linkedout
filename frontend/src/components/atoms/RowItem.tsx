@@ -9,6 +9,7 @@ const profiles = await getProfessionals();
 
 interface RowItemProps {
     setOpen: () => void;
+    mockScore: number;
     data: any;
 }
 
@@ -23,7 +24,7 @@ const truncateHeadline = (headline: string, limit: number) => {
 
 
 // name, about, experience, education, skills, email
-const RowItem = ({ setOpen, data}: RowItemProps) => {
+const RowItem = ({ setOpen, mockScore, data}: RowItemProps) => {
   const navigate = useNavigate();
   const handleIconClick = () => {
     if (data?.url) {
@@ -73,10 +74,10 @@ const RowItem = ({ setOpen, data}: RowItemProps) => {
           <Badge
             size="md"
             variant="light"
-            color={data.score > 0.6 ? "cyan" : data.score > 0.25 ? "yellow" : "pink"}
+            color={mockScore > 0.6 ? "cyan" : mockScore > 0.25 ? "yellow" : "pink"}
             sx={{ marginLeft: "10px" }}
           >
-            {(data?.score * 100).toFixed(2)}% MATCH
+            {(mockScore * 100).toFixed(2)}% MATCH
           </Badge>
         </Flex>
       </Flex>

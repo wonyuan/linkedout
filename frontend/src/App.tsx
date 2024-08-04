@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MessagesProvider } from '@context/messageContext';
 import { InitialPage } from './pages/InitialPage';
 
+
 const App = () => {
   return (
     <MessagesProvider>
