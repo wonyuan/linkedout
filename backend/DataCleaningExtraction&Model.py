@@ -23,7 +23,7 @@ print("SpaCy and Stanza initialized.", flush=True)
 
 ##############################################
 # Initialize Cohere client
-cohere_api_key = 'fZwPAWvKGMQvat8xVzmD663SJ0b3sp1ZTCnhPTeP'  # Replace with your Cohere API key
+cohere_api_key = 'fZwPAWvKGMQvat8xVzmD663SJ0b3sp1ZTCnhPTeP'  # Replace if new created (unsure if it expires about ceratin amount of time)
 cohere_client = cohere.Client(cohere_api_key)
 
 print("Cohere client initialized.", flush=True)
