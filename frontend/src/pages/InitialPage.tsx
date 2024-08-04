@@ -1,6 +1,5 @@
-import { Flex } from '@mantine/core';
+import { Flex, useMantineTheme } from '@mantine/core';
 import { AccountInput } from "@molecules/AccountInput";
-import { useMantineTheme } from '@mantine/core';
 
 export function InitialPage() {
     const theme = useMantineTheme();
@@ -15,7 +14,7 @@ export function InitialPage() {
                 width: "100%", 
                 minHeight: "100vh", 
                 padding: "20px", 
-                background: radialGradient
+                backgroundImage: radialGradient
             }}
         >
             <AccountInput />

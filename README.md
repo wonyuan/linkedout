@@ -11,8 +11,12 @@ You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help s
 - `python=3.8.0+`
 
 **Front End:** 
-- React,
-- (fill this out)
+- React
+- Typescript
+
+**Backend End:** 
+- Python
+- Flask
 
 **Web-Scraping Backend:** 
 - `selenium==4.1.3` (webdriver & webDriverManger)
@@ -24,7 +28,8 @@ You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help s
 - `pymongo==4.0.1`
 
 **Machine Learning:**
-- `cohere==` 
+- `cohere==`
+- `HuggingFace` (pre-trained for efficiency reasons)
 - fill this out
 
 ## SetUp Instructions
