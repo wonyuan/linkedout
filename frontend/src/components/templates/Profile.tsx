@@ -21,6 +21,8 @@ const Profile = () => {
     const nameParts = name.split(' ');
     const firstName = nameParts[0] || '';
     const lastName = nameParts[1] || '';
+
+    //set email to this for now since we do not scrape email from linkedin
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@gmail.com`;
     const navigate = useNavigate();
 
