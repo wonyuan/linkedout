@@ -13,16 +13,15 @@ import time
 app=Flask(__name__)
 cors= CORS(app, origins="*")
 
+#https://www.linkedin.com/in/shivya-mehta/
 @app.errorhandler(400)
 def bad_request(e):
     return jsonify(e), 400
 
-#https://www.linkedin.com/in/shivya-mehta/
 @app.route("/api/linkedinURL", methods=["POST"])
 def get_linkedin():
 
     data = request.json
-    print(data.get('linkedinURL', ""))
     linkedin_url = data.get('linkedinURL', "")
 
     chrome_options = Options()
@@ -50,7 +49,7 @@ def get_linkedin():
     #parse the HTML using BeautifulSoup
     soup = BeautifulSoup(page_source, 'html.parser')
 
-    #extract name and about
+    #extract name and about section from LinkedIn
     time.sleep(1)
     name = soup.find('h1', {'class': 'text-heading-xlarge inline t-24 v-align-middle break-words'}).text.strip()
     time.sleep(1)
@@ -76,8 +75,6 @@ def get_linkedin():
     #closes the browser
     driver.quit()
 
-
-
     return {"name": name, "about": about, "experiences": experience_list}
 
 
@@ -86,14 +83,3 @@ def get_linkedin():
 if __name__ == "__main__":
         app.run(debug=True, port=8000)
 
-
-
-
-# experience_section = soup.find('ul', {'class': 'TSXovOouyqHysMDvzEUuMfiyaHtujjHMYdVCA'})
-# if experience_section:
-#     print("Experience: ")
-#     experience_list_items = experience_section.find_all('li')
-#     experience_list_items_unique = list(set(experience_list_items))
-#     for experience in experience_list_items_unique:
-#         if experience.text.strip():
-#             print(experience.text.strip())

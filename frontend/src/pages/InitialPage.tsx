@@ -3,7 +3,8 @@ import { AccountInput } from "@molecules/AccountInput";
 import { useMantineTheme } from '@mantine/core';
 
 export function InitialPage() {
-    const radialGradient = 'radial-gradient(circle, #C5F6FA 10%, #ffffff 90%)'; 
+    const theme = useMantineTheme();
+    const radialGradient = 'radial-gradient(circle, #E3FAFC, #ffffff)'; 
 
     return (
         <Flex 
@@ -20,4 +21,4 @@ export function InitialPage() {
             <AccountInput />
         </Flex>
     );
-}
+};

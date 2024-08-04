@@ -4,9 +4,10 @@ import { IconGhost2Filled } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
 import {useState} from "react";
 import api from "../../../api/axiosInstance";
+import { useNavigate } from 'react-router-dom';
 
 export function AccountInput() {
-  
+  const navigate = useNavigate();
   const [linkedinURL, setLinkedinURL] = useState<string>("");
 
   const [name, setName] = useState<string>("");
@@ -22,10 +23,11 @@ export function AccountInput() {
       setAbout(response.data.about);
       console.log(response.data.experiences);
       setExperiences(response.data.experiences);
+      navigate('/home');
 
     } catch (error) {
       console.error('Error logging in', error);
- 
+      navigate('/');
     }
   };
 
@@ -54,8 +56,8 @@ export function AccountInput() {
         fw={300}
         leftSectionPointerEvents="none"
         leftSection={icon}
-        label="Please enter your linkedin"
-        placeholder="username@linkedin.com"
+        label="Please copy paste your linkedin URL"
+        placeholder="https://linkedin.com/in/username"
         sx={{ width: '500px' }}
         labelProps={{ style: { fontWeight: 500, fontSize: rem(18), color: "#414141" } }}
       />
