@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from database import get_all_professionals, get_all_headlines
-from data_model import calculate_similarity, calculate_similarities
+# from data_model import calculate_similarity, calculate_similarities
 #
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -15,8 +15,6 @@ import os
 import time
 from dotenv import load_dotenv
 from pymongo import MongoClient
-
-# from cohere_model import get_similarity_scores_about, get_similarity_sources
 
 pref = ''
 
