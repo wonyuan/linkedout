@@ -17,7 +17,7 @@ db = client['LinkedOutReach']
 collection_name = "ProfileData"
 collection = db[collection_name]
 
-
+@app.route("/api/getUserDatabase", methods=["GET"])
 def get_all_professionals():
     prof_array = []
     profs = collection.find({}, { "_id" : 0, "name" : 1, "headline" : 1 })

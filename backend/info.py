@@ -8,6 +8,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+#load username and password from .emv file
+linkedin_username= os.getenv('LINKEDIN_USERNAME')
+linkedin_password= os.getenv('LINKEDIN_PASSWORD')
 
 #######################################################
 ## Just gonna box this all up into a nice function that scrapes a profile given a driver and a URL
@@ -71,8 +77,8 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.get('https://www.linkedin.com/login')
 
 # Log in to LinkedIn
-driver.find_element("id", "username").send_keys('janoochinki@gmail.com')
-driver.find_element("id", "password").send_keys('passwordhackthe6ix')
+driver.find_element("id", "username").send_keys(linkedin_username)
+driver.find_element("id", "password").send_keys(linkedin_password)
 driver.find_element("css selector", '.login__form_action_container button').click()
 time.sleep(20)
 
