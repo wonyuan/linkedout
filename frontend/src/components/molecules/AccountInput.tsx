@@ -30,7 +30,7 @@ export function AccountInput() {
         <Flex direction="row" align="center">
           <IconGhost2Filled color="#1098AD" size={60} />        
           <Text size="xl" fw={700} c="#414141" sx={{ marginLeft: '10px', fontSize: rem(60)}}>
-            linkedOutReach
+            LinkedOutReach
           </Text>
         </Flex>
         <Text size="lg" fw={500} c="#414141" sx={{ marginTop:'-15px'}}>
