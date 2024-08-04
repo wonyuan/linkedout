@@ -8,17 +8,29 @@ import api from "../../../api/axiosInstance";
 export function AccountInput() {
   
   const [linkedinURL, setLinkedinURL] = useState<string>("");
-  
+
+  const [name, setName] = useState<string>("");
+  const [about, setAbout] = useState<string>("");
+  const [experiences, setExperiences] = useState<string[]>([]);
+
   const handleSearch = async () => {
     try {
       const response = await api.post('/api/linkedinURL', {linkedinURL});
-      print(response.data.name);
+      console.log(response.data.name);
+      setName(response.data.name)
+      console.log(response.data.about);
+      setAbout(response.data.about);
+      console.log(response.data.experiences);
+      setExperiences(response.data.experiences);
 
     } catch (error) {
       console.error('Error logging in', error);
  
     }
   };
+
+
+
   const icon = <IconBrandLinkedin style={{ width: rem(16), height: rem(16) }} />;
   return (
     <Flex direction="column" sx={{ minHeight: '100vh' }} justify="center" align="center" gap="md"> 
