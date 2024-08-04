@@ -183,20 +183,12 @@ try:
         goals = ', '.join(similar_features['goals']) if similar_features['goals'] else "various goals"
         keywords = ', '.join(similar_features['keywords']) if similar_features['keywords'] else "various topics"
 
-        message = (
-            f"Dear {recipient_name},\n\n"
-            f"I hope this message finds you well. I came across your profile and noticed several commonalities between us that I believe warrant a connection.\n\n"
-            f"Firstly, our skill sets seem to align, with a shared interest and expertise in {skills}. This similar background provides a great foundation for potential collaboration or knowledge-sharing opportunities.\n\n"
-            f"Furthermore, our professional interests and goals are also well-aligned. With a mutual passion for {interests}, I believe we could engage in fruitful discussions and collaborations.\n\n"
-            f"Let's connect and explore how we can leverage our shared {keywords} to achieve our {goals}.\n\n"
-            f"Best regards,\n"
-            f"[Your Name]"
-        )
+        message = ()
 
         return message
 
-    # Example usage with the first profile and a selected similar profile
-    recipient_name = "John Doe"  # Example recipient name
+    # tester example usage with the first profile and a selected similar profile
+    recipient_name = "hack the 6ix judge"  # Example recipient name
     similar_features_example = similarities[0]['similar_features']
     message = construct_linkedin_message(similar_features_example, recipient_name)
     print("Generated LinkedIn Message:")
