@@ -10,8 +10,8 @@ export function AccountInput() {
     <Flex direction="column" sx={{ minHeight: '100vh' }} justify="center" align="center" gap="md"> 
       <Flex direction="column" align="center" sx={{ marginBottom: '20px' }}>
         <Flex direction="row" align="center">
-          <IconGhost2Filled color="#1098AD" size={70} />        
-          <Text size="xl" fw={700} c="#414141" sx={{ marginLeft: '10px', fontSize: rem(70)}}>
+          <IconGhost2Filled color="#1098AD" size={60} />        
+          <Text size="xl" fw={700} c="#414141" sx={{ marginLeft: '10px', fontSize: rem(60)}}>
             linkedOutReach
           </Text>
         </Flex>
