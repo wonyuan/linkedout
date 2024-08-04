@@ -3,11 +3,24 @@ import { Flex, Box, Text, Badge, UnstyledButton } from '@mantine/core';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { IconPointer } from '@tabler/icons-react';
 import { Avatar } from '@mantine/core';
+import { getProfessionals } from '@/api/professionals';
+
+const profiles = await getProfessionals();
 
 interface RowItemProps {
     setOpen: () => void;
     data: any;
 }
+
+const truncateHeadline = (headline: string, limit: number) => {
+  if (!headline) return '';
+
+  const words = headline.split(' ');
+  if (words.length <= limit) return headline;
+
+  return words.slice(0, limit).join(' ') + '...';
+};
+
 
 // name, about, experience, education, skills, email
 const RowItem = ({ setOpen, data}: RowItemProps) => {
@@ -47,7 +60,7 @@ const RowItem = ({ setOpen, data}: RowItemProps) => {
             </Text>
           </Flex>
           <Text size="sm" c="gray">
-            {data?.desc}
+          {truncateHeadline(data?.headline, 30)}
           </Text>
         </Flex>
         <Flex sx={{ alignItems: "center", flexGrow: 1, justifyContent: "flex-end" }}>

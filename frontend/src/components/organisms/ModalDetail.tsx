@@ -13,6 +13,7 @@ interface ModalDetailProps {
 const message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
 
 const ModalDetail = ({ open, setClose, data }: ModalDetailProps) => {
+  console.log(data);
     const { addMessage } = useMessages(); 
 
     const handleSaveMessage = (content: string) => {

@@ -5,14 +5,15 @@ import Header from "@molecules/Header";
 import { headers } from "@constants/text";
 import UserCard from "@molecules/UserCard";
 import TextCard from "@molecules/TextCard";
+import useLoading from "@context/loadingContext";
 
-import api from "../../../api/axiosInstance";
+import api from "../../api/axiosInstance";
 import {useEffect, useState} from 'react';
 
 // saved messages that you've sent already to people
 // empty card for when messages aren't saved, can be copied easily
 const Profile = () => {
-
+    const { setLoading } = useLoading();
     const [name, setName] = useState<string>("");
     const [about, setAbout] = useState<string>("");
     const [experiences, setExperiences] = useState<string[]>([]);
@@ -34,11 +35,14 @@ const Profile = () => {
     
    
     const receiveUserData= async () => {
+        setLoading(true);
+
         try {
         const response = await api.get("/api/getLinkedInData");
         setName(response.data.name)
         setAbout(response.data.about);
         setExperiences(response.data.experiences);
+        setLoading(false);
 
         } catch (error) {
         console.error('Error logging in', error);

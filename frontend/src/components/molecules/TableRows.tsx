@@ -3,35 +3,15 @@ import { Flex, Box, Badge } from '@mantine/core';
 import Loader from '@atoms/Loader';
 import RowItem from "@atoms/RowItem";
 import ModalDetail from '@organisms/ModalDetail';
+import { getProfessionals } from '@api/professionals';
+
+console.log(getProfessionals);
+
+const profiles = await getProfessionals();
 
 const mockUser = {
     name: "Gregory Lane",
-    interests: ["hiking", "horror movies", "tech"],
 }
-
-const mockData = [
-    {
-        name: "John Doe",
-        email: "johndoe@linkedin.com",
-        desc: "avid lover of all things tech, hiking in san paulo, and ranking horror movies on how badly they ruin my sleep schedule",
-        url: "https://www.linkedin.com/in/johndoe",
-        score: 0.76,
-    },
-    {
-        name: "Ann Wheeler",
-        email: "annwheeler@linkedin.com",
-        desc: "avid lover of all things tech, hiking in san paulo, and ranking horror movies on how badly they ruin my sleep schedule",
-        url: "https://www.linkedin.com/in/johndoe",
-        score: 0.52,
-    },
-    {
-        name: "Paulo Smith",
-        email: "paulydoeswheelies@linkedin.com",
-        desc: "avid lover of all things tech, hiking in san paulo, and ranking horror movies on how badly they ruin my sleep schedule",
-        url: "https://www.linkedin.com/in/johndoe",
-        score: 0.22,
-    }
-]
 
 const TableRows = () => {
   const [open, setOpen] = useState<string | null>(null);
@@ -46,7 +26,7 @@ const TableRows = () => {
             setOpen(null);
             setIndex(null); 
           }}
-          data={index !== null ? mockData[index] : null}
+          data={index !== null ? profiles?.professionals[index] : null}
         />
         <Badge size="lg">
             Matches
@@ -59,7 +39,7 @@ const TableRows = () => {
           marginTop: '5px',
         }}
       >
-        {mockData.map((data, idx) => (
+        {profiles?.professionals.map((data:any, idx: number) => (
         <Flex
           direction="row"
           gap="8px"
@@ -83,7 +63,7 @@ const TableRows = () => {
         >
           <RowItem 
             setOpen={() => {
-              setOpen(data.name); 
+              setOpen(profiles?.professionals); 
               setIndex(idx); 
             }}  
             data={data}/>

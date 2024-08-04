@@ -3,17 +3,22 @@ import { IconBrandLinkedin } from '@tabler/icons-react';
 import { IconGhost2Filled } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
 import {useState} from "react";
-import api from "../../../api/axiosInstance";
+import api from "../../api/axiosInstance";
 import { useNavigate } from 'react-router-dom';
+import useLoading from "@context/loadingContext";
+
 
 export function AccountInput() {
+  const { setLoading } = useLoading();
   const navigate = useNavigate();
   const [linkedinURL, setLinkedinURL] = useState<string>("");
 
  
   const handleSearch = async () => {
     try {
+      setLoading(true);
       const response = await api.post('/api/linkedinURL', {linkedinURL});
+      setLoading(false);
       navigate('/home');
 
     } catch (error) {

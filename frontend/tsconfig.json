@@ -33,5 +33,5 @@
       "@templates/*": ["src/components/templates/*"]
     }
   },
-  "include": ["src", "test-utils"]
+  "include": ["src", "test-utils", "env.d.ts"]
 }
