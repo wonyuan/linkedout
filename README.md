@@ -24,7 +24,8 @@ You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help s
 - `pymongo==4.0.1`
 
 **Machine Learning:**
-- `cohere==` 
+- `cohere==`
+- `HuggingFace` (pre-trained for efficiency reasons)
 - fill this out
 
 ## SetUp Instructions
