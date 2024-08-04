@@ -3,6 +3,7 @@
 # LinkedOutReach
 
 You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help students, industry newcomers, and career transitioners to make that first step in networking (will reword this later).
+Let's be real, do you really have the time today to be rewording and formatting your emails
 
 
 ## Tech Stack & Requirements
@@ -11,6 +12,7 @@ You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help s
 - `python=3.8.0+`
 
 **Front End:** 
+- React (Vite) + Typescript
 - React
 - Typescript
 
@@ -28,9 +30,7 @@ You've heard of LinkedIn. Now introducing LinkedOutReach. The platform to help s
 - `pymongo==4.0.1`
 
 **Machine Learning:**
-- `cohere==`
-- `HuggingFace` (pre-trained for efficiency reasons)
-- fill this out
+- Cohere API's for text embedding, summarization, and generation
 
 ## SetUp Instructions
 
