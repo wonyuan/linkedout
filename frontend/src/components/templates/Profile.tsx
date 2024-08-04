@@ -51,12 +51,13 @@ const Profile = () => {
         }
     };
 
-
     //empty dependency array ensures this runs only once on mount
     useEffect(() => {
         receiveUserData();
     }, []); 
-    
+
+
+
 
     return (
         <Flex direction="column" gap="10px" sx={{ padding: "50px 75px 75px 50px", height: "100vh" }}>

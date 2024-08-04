@@ -127,5 +127,34 @@ def get_linkedin_data():
         return jsonify({"error": "No data available. Please make a POST request first."}), 404
 
 
+    # Function to extract keywords using SpaCy
+@app.route("/api/getKeywords", methods=["POST"])
+def extract_keywords():
+    data = request.json
+    text =  data.get('about')
+    doc = nlp(text.lower())
+    keywords = [token.lemma_ for token in doc if not token.is_stop and token.is_alpha]
+    return keywords
+    extract_features(about, keywords)
+
+
+@app.route("/api/getFeatures", methods=["POST"])
+def extract_features(doc, keywords):
+    headline = doc.get('headline', '')
+    skills = doc.get('skills', [])
+    interests = doc.get('interests', [])
+    goals = doc.get('goals', [])
+    name = doc.get('name', 'Unnamed')
+    return {
+        'name': name,
+        'headline': headline,
+        'skills': skills,
+        'interests': interests,
+        'goals': goals,
+        'keywords': keywords
+    }
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,7 +1,7 @@
 {
   "name": "mantine-vite-template",
   "private": true,
-  "proxy" : "http://localhost:8000",
+  "proxy" : "http://localhost:5000",
   "version": "0.0.0",
   "overrides": {
     "eslint": "^9.8.0"

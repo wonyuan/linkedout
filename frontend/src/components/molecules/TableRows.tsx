@@ -4,6 +4,16 @@ import Loader from '@atoms/Loader';
 import RowItem from "@atoms/RowItem";
 import ModalDetail from '@organisms/ModalDetail';
 import { getProfessionals } from '@api/professionals';
+import { useMemo } from "react";
+
+import { useNavigate } from "react-router-dom";
+import Header from "@molecules/Header";
+import { headers } from "@constants/text";
+import UserCard from "@molecules/UserCard";
+import TextCard from "@molecules/TextCard";
+import useLoading from "@context/loadingContext";
+
+import api from "../../api/axiosInstance";
 
 console.log(getProfessionals);
 
@@ -16,6 +26,28 @@ const mockUser = {
 const TableRows = () => {
   const [open, setOpen] = useState<string | null>(null);
   const [index, setIndex] = useState<number | null>(null);
+
+
+  const { setLoading } = useLoading();
+  const navigate = useNavigate();
+  const [linkedinURL, setLinkedinURL] = useState<string>("");
+  const [feature, setFeatures] = useState(null);
+ 
+
+  const handleSearch = async (about:string) => {
+    try {
+      setLoading(true);
+      const response = await api.post('/api/getFeatures', {about});
+      setFeatures(response.data);
+      setLoading(false);
+      navigate('/home');
+
+    } catch (error) {
+      console.error('Error logging in', error);
+      navigate('/');
+    }
+  };
+  
 
   return (
     <Box >
