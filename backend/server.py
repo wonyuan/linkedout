@@ -14,7 +14,20 @@ import os
 import time
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
+mongo_username = os.getenv("kaal")
+mongo_password = os.getenv("linkedOutReachHT6")
+
+mongo_connection_string = 'mongodb+srv://kaal:linkedOutReachHT6@linkedoutreach.w14urt6.mongodb.net/LinkedOutReach'
+
+client = MongoClient(mongo_connection_string)
+db = client['LinkedOutReach']
+
+collection_name = "ProfileData"
+collection = db[collection_name]
 # from cohere_model import get_similarity_scores_about, get_similarity_sources
 
 pref = ''
