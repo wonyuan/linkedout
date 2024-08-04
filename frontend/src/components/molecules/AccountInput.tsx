@@ -2,9 +2,23 @@ import { TextInput, rem, Flex, Text } from '@mantine/core';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { IconGhost2Filled } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
-
+import {useState} from "react";
+import api from "../../../api/axiosInstance";
 
 export function AccountInput() {
+  
+  const [linkedinURL, setLinkedinURL] = useState<string>("");
+  
+  const handleSearch = async () => {
+    try {
+      const response = await api.post('/api/linkedinURL', {linkedinURL});
+      print(response.data.name);
+
+    } catch (error) {
+      console.error('Error logging in', error);
+ 
+    }
+  };
   const icon = <IconBrandLinkedin style={{ width: rem(16), height: rem(16) }} />;
   return (
     <Flex direction="column" sx={{ minHeight: '100vh' }} justify="center" align="center" gap="md"> 
@@ -21,6 +35,8 @@ export function AccountInput() {
       </Flex>
       <Flex direction="row" gap="xs">
       <TextInput 
+        value = {linkedinURL}
+        onChange= {(e) => setLinkedinURL(e.target.value)}
         c="#414141" 
         fz="xl" 
         fw={300}
@@ -31,7 +47,7 @@ export function AccountInput() {
         sx={{ width: '500px' }}
         labelProps={{ style: { fontWeight: 800, fontSize: rem(18), color: "#414141" } }}
       />
-      <Button variant="filled">Search</Button>
+      <Button onClick={handleSearch} variant="filled">Search</Button>
       </Flex>
     </Flex>
   );
