@@ -1,4 +1,4 @@
-import { Flex } from '@mantine/core';
+import { Flex, useMantineTheme } from '@mantine/core';
 import { AccountInput } from "@molecules/AccountInput";
 
 export function InitialPage() {

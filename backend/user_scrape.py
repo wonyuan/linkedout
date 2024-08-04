@@ -11,6 +11,16 @@ from bs4 import BeautifulSoup
 import os
 import time
 from dotenv import load_dotenv
+from pymongo import MongoClient
+
+
+# MongoDB connection string
+mongo_connection_string = 'mongodb+srv://kaal:linkedOutReachHT6@linkedoutreach.w14urt6.mongodb.net/LinkedOutReach'
+
+# Store data in MongoDB
+client = MongoClient(mongo_connection_string)
+db = client['LinkedOutReach']
+collection = db['ProfileData']
 
 #load environment variables from .env file
 linkedin_username= os.getenv('LINKEDIN_USERNAME')
@@ -82,6 +92,12 @@ def get_linkedin():
     driver.quit()
     
     print("About: " + about)
+    try:
+        collection.insert(scraped_data)
+    except Exception as e:
+        print(f'An error occurred: {e}')
+        
+
 
     return jsonify(scraped_data)
 
