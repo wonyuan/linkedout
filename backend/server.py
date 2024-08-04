@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from database import get_all_professionals
+from database import get_all_professionals, get_all_headlines
+from data_model import calculate_similarity, calculate_similarities
 #
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -14,8 +15,6 @@ import os
 import time
 from dotenv import load_dotenv
 from pymongo import MongoClient
-
-# from cohere_model import get_similarity_scores_about, get_similarity_sources
 
 pref = ''
 
@@ -32,11 +31,18 @@ scraped_data = {}
 def bad_request(e):
     return jsonify(e), 400
 
-@app.route("/professionals", methods=["GET", "POST"])
+@app.route("/professionals", methods=["GET"])
 def get_professionals():
     professionals = get_all_professionals()
     return { 'professionals': professionals }
 
+# @app.route("/score", methods=["POST"])
+# def get_score():
+#     data = request.get_json()
+#     pref = data['pref']
+#     abouts = data['abouts']
+#     scores = calculate_similarities(pref, abouts)
+#     return jsonify({"created": data, "scores": scores})
 
 @app.route("/api/linkedinURL", methods=["POST"])
 def get_linkedin():

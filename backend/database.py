@@ -24,3 +24,11 @@ def get_all_professionals():
         if prof:
             prof_array.append(prof)
     return prof_array
+
+def get_all_headlines():
+    headlines = []
+    profs = collection.find({}, {"_id": 0, "headline": 1})
+    for prof in profs:
+        if 'headline' in prof:
+            headlines.append(prof['headline'])
+    return headlines
